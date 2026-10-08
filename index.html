@@ -9,9 +9,8 @@
 <style>
   /* Colors sampled from the Etsy shop page. */
   :root {
-    --bg: #faf8f5; --card: #fff; --text: #222; --muted: #595959;
-    --pine: #14190c; --accent: #7a1418; --accent-text: #fff;
-    --etsy: #f1641e; --line: #e6e1d9; --wood: #eadec8;
+    --bg: #faf8f5; --text: #222; --muted: #595959;
+    --pine: #14190c; --accent: #7a1418; --accent-text: #fff; --etsy: #f1641e;
   }
   * { box-sizing: border-box; }
   body {
@@ -19,60 +18,45 @@
     font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
   img { display: block; width: 100%; height: auto; }
-  .banner {
-    height: 120px; background: var(--pine) url(images/banner.jpg) center / cover no-repeat;
-  }
-  main { max-width: 960px; margin: 0 auto; padding: 0 16px 48px; }
   header {
-    display: flex; align-items: center; gap: 14px;
-    margin: -28px 0 28px; position: relative;
+    min-height: 180px; padding: 24px 16px; color: #fff; text-align: center;
+    display: flex; flex-direction: column; justify-content: center;
+    background: linear-gradient(rgb(0 0 0 / .35), rgb(0 0 0 / .35)),
+                var(--pine) url(images/banner.jpg) center / cover no-repeat;
   }
-  header img {
-    width: 76px; height: 76px; border-radius: 10px; flex: none;
-    border: 3px solid var(--bg); background: var(--wood);
+  header h1 {
+    margin: 0; font-size: clamp(1.7rem, 5vw, 2.8rem); font-weight: 700; line-height: 1.15;
+    text-shadow: 0 2px 8px rgb(0 0 0 / .5);
   }
-  header h1 { margin: 24px 0 0; font-size: 1.5rem; font-weight: 600; line-height: 1.2; overflow-wrap: anywhere; }
-  @media (max-width: 480px) { header h1 { font-size: 1.15rem; } }
-  header p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-  .btn {
-    display: block; text-align: center; text-decoration: none; font-weight: 600;
-    padding: 12px 16px; border-radius: 999px;
-  }
-  .btn:hover { filter: brightness(1.12); }
-  .free {
-    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
-    overflow: hidden; max-width: 480px; margin: 0 auto 40px;
-  }
-  .free .body { padding: 16px; }
-  .free h2 { margin: 0 0 4px; font-size: 1.3rem; }
-  .free p { margin: 0 0 16px; color: var(--muted); }
-  .free .btn { background: var(--accent); color: var(--accent-text); font-size: 1.1rem; padding: 14px; }
-  h2.section { font-size: 1.3rem; font-weight: 500; margin: 0 0 16px; }
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  @media (min-width: 640px) { .grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+  header p { margin: 6px 0 0; font-size: 1.05rem; text-shadow: 0 1px 4px rgb(0 0 0 / .5); }
+  main { padding: 20px 16px 48px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 12px; }
+  @media (min-width: 640px)  { .grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 900px)  { .grid { grid-template-columns: repeat(4, 1fr); gap: 20px 16px; } }
+  @media (min-width: 1100px) { .grid { grid-template-columns: repeat(5, 1fr); } }
   .card { display: flex; flex-direction: column; }
   .card img { border-radius: 12px; }
-  .card .body { padding: 8px 2px 0; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card .body { padding: 8px 2px 0; display: flex; flex-direction: column; gap: 4px; flex: 1; }
   .card h3 { margin: 0; font-size: 0.95rem; font-weight: 400; flex: 1; }
-  .card .btn { background: var(--etsy); color: #fff; font-size: 0.9rem; padding: 9px; }
+  .card .price { font-weight: 700; margin-bottom: 4px; }
+  .btn {
+    display: block; text-align: center; text-decoration: none; font-weight: 600;
+    font-size: 0.9rem; padding: 9px; border-radius: 999px;
+    background: var(--etsy); color: #fff;
+  }
+  .btn:hover { filter: brightness(1.12); }
+  .card.free .price { color: var(--accent); }
+  .card.free .btn { background: var(--accent); color: var(--accent-text); }
   footer { text-align: center; margin-top: 32px; }
   footer a { color: var(--text); font-weight: 600; }
 </style>
 </head>
 <body>
-<div class="banner"></div>
+<header>
+  <h1 id="shop-name"></h1>
+  <p id="tagline"></p>
+</header>
 <main>
-  <header>
-    <img src="images/logo.png" alt="">
-    <div>
-      <h1 id="shop-name"></h1>
-      <p id="tagline"></p>
-    </div>
-  </header>
-
-  <section class="free" id="free"></section>
-
-  <h2 class="section">More designs</h2>
   <div class="grid" id="products"></div>
 
   <footer><a id="shop-link" target="_blank" rel="noopener">See the whole shop on Etsy &rarr;</a></footer>
@@ -86,32 +70,27 @@ fetch("site.json").then(r => r.json()).then(site => {
     e.append(...kids);
     return e;
   };
+  const card = (p, button, cls = "card") => el("div", { className: cls }, [
+    el("img", { src: p.image, alt: p.title, loading: "lazy" }),
+    el("div", { className: "body" }, [
+      el("h3", { textContent: p.title }),
+      el("div", { className: "price", textContent: p.price }),
+      button,
+    ]),
+  ]);
 
   document.title = site.free.title;
   document.getElementById("shop-name").textContent = site.shop_name;
   document.getElementById("tagline").textContent = site.tagline || "";
   document.getElementById("shop-link").href = site.etsy_shop_url;
 
-  const f = site.free;
-  document.getElementById("free").append(
-    el("img", { src: f.image, alt: f.title }),
-    el("div", { className: "body" }, [
-      el("h2", { textContent: f.title }),
-      el("p", { textContent: f.text }),
-      el("a", { className: "btn", href: f.file, download: "", textContent: "Download free file" }),
-    ]),
-  );
-
   const grid = document.getElementById("products");
+  const f = site.free;
+  grid.append(card(f, el("a", { className: "btn", href: f.file, download: "",
+                                textContent: "Free download" }), "card free"));
   for (const p of site.products) {
-    grid.append(el("div", { className: "card" }, [
-      el("img", { src: p.image, alt: p.title, loading: "lazy" }),
-      el("div", { className: "body" }, [
-        el("h3", { textContent: p.title }),
-        el("a", { className: "btn", href: p.etsy_url, target: "_blank", rel: "noopener",
-                  textContent: "Buy on Etsy" }),
-      ]),
-    ]));
+    grid.append(card(p, el("a", { className: "btn", href: p.etsy_url, target: "_blank",
+                                  rel: "noopener", textContent: "Buy on Etsy" })));
   }
 });
 </script>
