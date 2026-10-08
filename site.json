@@ -5,6 +5,7 @@
   "free": {
     "title": "Free Snowman Ornament",
     "image": "images/baseballman.jpg",
+    "video": "video/baseballman.mp4",
     "file": "free/free-ornament.zip",
     "price": "Free"
   },
@@ -12,48 +13,56 @@
     {
       "title": "Gym Lover Snowman Ornament",
       "image": "images/weightman.jpg",
+      "video": "video/weightman.mp4",
       "price": "$1.94",
       "etsy_url": "https://www.etsy.com/listing/4590831460"
     },
     {
       "title": "Soccer Snowman Ornament",
       "image": "images/soccerman.jpg",
+      "video": "video/soccerman.mp4",
       "price": "$1.94",
       "etsy_url": "https://www.etsy.com/listing/4590816013"
     },
     {
       "title": "Jogging Snowman Ornament",
       "image": "images/jogman.jpg",
+      "video": "video/jogman.mp4",
       "price": "$1.94",
       "etsy_url": "https://www.etsy.com/listing/4590824760"
     },
     {
       "title": "Hiking Snowman Ornament",
       "image": "images/hikeman.jpg",
+      "video": "video/hikeman.mp4",
       "price": "$1.94",
       "etsy_url": "https://www.etsy.com/listing/4590810555"
     },
     {
       "title": "Gardening Snowman Ornament",
       "image": "images/gardenman.jpg",
+      "video": "video/gardenman.mp4",
       "price": "$1.94",
       "etsy_url": "https://www.etsy.com/listing/4590807923"
     },
     {
       "title": "Fishing Snowman Ornament",
       "image": "images/fishman.jpg",
+      "video": "video/fishman.mp4",
       "price": "$1.94",
       "etsy_url": "https://www.etsy.com/listing/4590804745"
     },
     {
       "title": "Camping Snowman Ornament",
       "image": "images/campman.jpg",
+      "video": "video/campman.mp4",
       "price": "$1.94",
       "etsy_url": "https://www.etsy.com/listing/4590813572"
     },
     {
       "title": "Baseball Snowman Ornament",
       "image": "images/baseballman.jpg",
+      "video": "video/baseballman.mp4",
       "price": "$1.94",
       "etsy_url": "https://www.etsy.com/listing/4590569955"
     }
