@@ -26,18 +26,18 @@
       "etsy_url": "https://www.etsy.com/listing/4590810555"
     },
     {
-      "title": "Fishing Snowman Ornament",
-      "image": "images/fishman.jpg",
-      "video": "video/fishman.mp4",
-      "price": "$1.94",
-      "etsy_url": "https://www.etsy.com/listing/4590804745"
-    },
-    {
       "title": "Gardening Snowman Ornament",
       "image": "images/gardenman.jpg",
       "video": "video/gardenman.mp4",
       "price": "$1.94",
       "etsy_url": "https://www.etsy.com/listing/4590807923"
+    },
+    {
+      "title": "Fishing Snowman Ornament",
+      "image": "images/fishman.jpg",
+      "video": "video/fishman.mp4",
+      "price": "$1.94",
+      "etsy_url": "https://www.etsy.com/listing/4590804745"
     },
     {
       "title": "Gym Lover Snowman Ornament",
