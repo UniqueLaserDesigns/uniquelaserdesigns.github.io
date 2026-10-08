@@ -1,0 +1,53 @@
+{
+  "shop_name": "UniqueLaserDesignsCo",
+  "tagline": "Laser cut designs made to stand out.",
+  "etsy_shop_url": "https://www.etsy.com/shop/uniquelaserdesignsco",
+  "free": {
+    "title": "Free Snowman Ornament",
+    "text": "Laser cut file in SVG, DXF and PDF. Free for personal use.",
+    "image": "images/baseballman.jpg",
+    "file": "free/free-ornament.zip"
+  },
+  "products": [
+    {
+      "title": "Gym Lover Snowman Ornament",
+      "image": "images/weightman.jpg",
+      "etsy_url": "https://www.etsy.com/listing/4590831460"
+    },
+    {
+      "title": "Soccer Snowman Ornament",
+      "image": "images/soccerman.jpg",
+      "etsy_url": "https://www.etsy.com/listing/4590816013"
+    },
+    {
+      "title": "Jogging Snowman Ornament",
+      "image": "images/jogman.jpg",
+      "etsy_url": "https://www.etsy.com/listing/4590824760"
+    },
+    {
+      "title": "Hiking Snowman Ornament",
+      "image": "images/hikeman.jpg",
+      "etsy_url": "https://www.etsy.com/listing/4590810555"
+    },
+    {
+      "title": "Gardening Snowman Ornament",
+      "image": "images/gardenman.jpg",
+      "etsy_url": "https://www.etsy.com/listing/4590807923"
+    },
+    {
+      "title": "Fishing Snowman Ornament",
+      "image": "images/fishman.jpg",
+      "etsy_url": "https://www.etsy.com/listing/4590804745"
+    },
+    {
+      "title": "Camping Snowman Ornament",
+      "image": "images/campman.jpg",
+      "etsy_url": "https://www.etsy.com/listing/4590813572"
+    },
+    {
+      "title": "Baseball Snowman Ornament",
+      "image": "images/baseballman.jpg",
+      "etsy_url": "https://www.etsy.com/listing/4590569955"
+    }
+  ]
+}
