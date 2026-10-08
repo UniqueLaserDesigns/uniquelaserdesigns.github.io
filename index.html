@@ -13,7 +13,7 @@
   /* Colors sampled from the Etsy shop page. */
   :root {
     --bg: #f3e5cf; --text: #222; --muted: #595959;
-    --pine: #14190c; --accent: #7a1418; --accent-text: #fff; --etsy: #f1641e;
+    --pine: #14190c; --accent: #7a1418; --accent-text: #fff; --buy: #9e6a47;
   }
   * { box-sizing: border-box; }
   body {
@@ -24,7 +24,8 @@
   header {
     min-height: 180px; padding: 24px 16px; color: #fff; text-align: center;
     display: flex; flex-direction: column; justify-content: center;
-    background: #2a190e url(images/wood.jpg) center / cover no-repeat;
+    background: linear-gradient(rgb(0 0 0 / .12), rgb(0 0 0 / .12)),
+                var(--pine) url(images/banner.jpg) center / cover no-repeat;
   }
   header h1 {
     margin: 0; font: 600 clamp(2rem, 6vw, 3.2rem)/1.1 Fredoka, system-ui, sans-serif; letter-spacing: .01em;
@@ -57,7 +58,7 @@
   .btn {
     display: block; text-align: center; text-decoration: none; font-weight: 600;
     font-size: 0.9rem; padding: 9px; border-radius: 999px;
-    background: var(--etsy); color: #fff;
+    background: var(--buy); color: #fff;
   }
   .btn:hover { filter: brightness(1.12); }
   .card.free .price { color: var(--accent); }
