@@ -2,11 +2,12 @@
   "shop_name": "Unique Laser Designs",
   "tagline": "Laser cut designs made to stand out.",
   "etsy_shop_url": "https://www.etsy.com/shop/uniquelaserdesignsco",
+  "goatcounter": "",
   "free": {
     "title": "Free Snowman Ornament",
     "image": "images/baseballman.jpg",
     "video": "video/baseballman.mp4",
-    "file": "free/free-ornament.zip",
+    "file": "https://github.com/UniqueLaserDesigns/uniquelaserdesigns.github.io/releases/download/free-v1/free-ornament.zip",
     "price": "Free"
   },
   "products": [

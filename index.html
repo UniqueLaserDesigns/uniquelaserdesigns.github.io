@@ -130,6 +130,17 @@ fetch("site.json").then(r => r.json()).then(site => {
     ]),
   ]);
 
+  // Visit and click counts go to GoatCounter when site.json names a code.
+  if (site.goatcounter) {
+    const gc = el("script", { async: true, src: "//gc.zgo.at/count.js" });
+    gc.dataset.goatcounter = `https://${site.goatcounter}.goatcounter.com/count`;
+    document.head.append(gc);
+  }
+  const track = (a, path) => {
+    a.addEventListener("click", () => window.goatcounter?.count?.({ path, event: true }));
+    return a;
+  };
+
   document.title = site.free.title;
   document.getElementById("shop-name").textContent = site.shop_name;
   document.getElementById("tagline").textContent = site.tagline || "";
@@ -137,12 +148,13 @@ fetch("site.json").then(r => r.json()).then(site => {
 
   const grid = document.getElementById("products");
   const f = site.free;
-  grid.append(card(f, el("a", { className: "btn", href: f.file, download: "",
-                                textContent: "Free download" }), "card free"));
+  grid.append(card(f, track(el("a", { className: "btn", href: f.file, download: "",
+                                      textContent: "Free download" }), "download-free"), "card free"));
   for (const p of site.products) {
-    grid.append(card(p, el("a", { className: "btn", href: p.etsy_url, target: "_blank",
-                                  rel: "noopener", textContent: "Buy on Etsy" })));
+    grid.append(card(p, track(el("a", { className: "btn", href: p.etsy_url, target: "_blank",
+                                        rel: "noopener", textContent: "Buy on Etsy" }), "etsy-" + p.title)));
   }
+  track(document.getElementById("shop-link"), "etsy-shop");
 });
 </script>
 </body>
